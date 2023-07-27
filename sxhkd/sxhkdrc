@@ -1,0 +1,68 @@
+# reload sxhkd
+super + Escape
+    	pkill -USR1 -x sxhkd
+
+# ---------- APP CONFIG ----------
+
+# terminal
+super + Return
+		alacritty
+
+# menu
+super + space
+		rofi -show drun -theme $HOME/.config/rofi/material/material.rasi
+
+# browser
+super + shift + Return
+        google-chrome
+
+# code editor
+super + shift + v
+        code
+
+# screenshot
+super + shift + c
+		scrot -s -d 1 $HOME/Imágenes/screenshot.png
+
+# ---------- SCRIPT CONFIG ----------
+
+# custom resize
+alt + super + {Left,Down,Up,Right}
+        /home/dylan/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
+
+# power menu
+super + shift + x
+    	$HOME/.config/bspwm/scripts/power_menu
+
+# ---------- BSPWM KEY ----------
+
+# quit/restart bspwm
+super + alt + {q,r}
+		bspc {quit,wm -r}
+
+# close window
+super + w
+		bspc node -k
+
+# overlay window
+super + m
+		bspc desktop -l next
+
+
+# ---------- FOCUS/SWAP ----------
+
+# focus the node in the given direction
+super + {_,shift + }{Left,Down,Up,Right}
+       	bspc node -{f,s} {west,south,north,east}
+
+# focus the next/previous desktop in the current monitor
+super + bracket{Left,Right}
+		bspc desktop -f {prev,next}.local
+
+# focus the last node/desktop
+super + {grave,Tab}
+		bspc {node,desktop} -f last
+
+#focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+		bspc {desktop -f,node -d} '^{1-9,10}'
