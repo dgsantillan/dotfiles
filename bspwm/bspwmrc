@@ -7,7 +7,7 @@ feh --bg-fill $HOME/.config/bspwm/wallpapers/forest-boat.jpg
 xrandr --output HDMI-A-0 --scale 0.85x0.85
 picom -f &
 
-bspc monitor -d I II III IV V 
+bspc monitor -d I II III IV V
 
 bspc config border_width        2
 bspc config window_gap          12
